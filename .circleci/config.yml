@@ -8,3 +8,8 @@ jobs:
      - run: 
             name: docker image build 
             command: docker build -t bengotch/simplewhale:$CIRCLE_BRANCH .
+    - run:
+              name: Publish Docker Image to Docker Hub
+              command: |
+                echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+                docker push $IMAGE_NAME:latest
