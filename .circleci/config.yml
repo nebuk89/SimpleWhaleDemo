@@ -4,12 +4,10 @@ jobs:
    machine: true
    steps:
      - checkout
-     # build the application image
+     - run: |
+         echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
      - run: 
             name: docker image build 
             command: docker build -t bengotch/simplewhale:$CIRCLE_BRANCH .
-    - run:
-              name: Publish Docker Image to Docker Hub
-              command: |
-                echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-                docker push $IMAGE_NAME:latest
+    - run: docker push bengotch/simplewhale:$CIRCLE_BRANCH
+            
