@@ -1,0 +1,10 @@
+version: 2.1
+jobs:
+ build:
+   machine: true
+   steps:
+     # build the application image
+     - run: docker build -t bengotch/simplewhale:$CIRCLE_BRANCH .
+
+     # deploy the image
+     - run: docker push bengotch/simplewhale:$CIRCLE_BRANCH
