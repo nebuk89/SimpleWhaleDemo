@@ -23,4 +23,4 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: bengotch/simplewhat:latest
+          tags: bengotch/simplewhale:latest
