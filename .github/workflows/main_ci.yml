@@ -34,6 +34,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
+          file: ./Dockerfile
           tags: bengotch/simplewhale:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
