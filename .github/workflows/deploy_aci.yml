@@ -1,7 +1,8 @@
 name: Pull Request Comment Trigger Example
 
 on:
-  workflow_dispatch
+  push:
+    branches: [ master ]
 #on:
 #    workflow_run:
 #      workflows: ["CI to Docker Hub"]
