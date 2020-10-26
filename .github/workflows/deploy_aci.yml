@@ -35,6 +35,3 @@ jobs:
 
       - name: "Test deployed server"
         run: 'curl http://simplewhale.westeurope.azurecontainer.io/'
-
-      - name: "Stop Running my App"
-        run: 'docker --context acicontext rm -f simplewhale'
