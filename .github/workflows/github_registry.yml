@@ -1,4 +1,4 @@
-name: CI to Docker Hub 
+name: CI to Github for every push
 
 on:
   push:
