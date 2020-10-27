@@ -38,4 +38,4 @@ jobs:
         run: 'docker --context acicontext run -d --name simplewhale --domainname simplewhale -p 80:80 bengotch/simplewhale '
 
       - name: "Test deployed server"
-        run: 'curl http://simplewhale.westeurope.azurecontainer.io/'
+        run: 'curl http://simplewhale.uksouth.azurecontainer.io/'
