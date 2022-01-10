@@ -1,8 +1,6 @@
 name: CI to Github for every push
 
-on:
-  push:
-    branches: [ master ]
+
 
 jobs:
 
