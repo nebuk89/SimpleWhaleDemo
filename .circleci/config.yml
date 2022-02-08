@@ -1,0 +1,20 @@
+version: 2.1
+
+orbs: 
+  docker: circleci/docker@2.0.1
+
+executors:
+  ubuntu-2004:
+    machine:
+      image: ubuntu-2004:202111-02
+      docker_layer_caching: false    
+
+workflows:
+  ci:
+    jobs:
+      - docker/publish:
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+          docker-username: DOCKER_HUB_USERNAME
+          image: $DOCKER_HUB_USERNAME/simplewhale
+          tag: $CIRCLE_SHA1
+          executor: ubuntu-2004
