@@ -1,5 +1,9 @@
-# docker-whale
+# Simple Whale Demo
 
-Run me : `docker run -p80:80 bengotch/whale-example`
+# Building Locally
 
-Build me: `docker build -t bengotch/whale-example .`
+> **Note**: We assume you are running these commands locally.
+
+Build me: `docker build -t simplewhale .`
+
+Run me : `docker run -p80:80 simplewhale`
