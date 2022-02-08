@@ -18,3 +18,4 @@ workflows:
           image: $DOCKER_HUB_USERNAME/simplewhale
           tag: $CIRCLE_SHA1,latest
           executor: ubuntu-2004
+          update-description: true
