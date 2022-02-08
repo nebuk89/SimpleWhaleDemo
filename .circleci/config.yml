@@ -16,5 +16,5 @@ workflows:
           docker-password: DOCKER_HUB_ACCESS_TOKEN
           docker-username: DOCKER_HUB_USERNAME
           image: $DOCKER_HUB_USERNAME/simplewhale
-          tag: $CIRCLE_SHA1
+          tag: $CIRCLE_SHA1,latest
           executor: ubuntu-2004
