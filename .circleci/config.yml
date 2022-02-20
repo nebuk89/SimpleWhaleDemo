@@ -1,21 +1,32 @@
 version: 2.1
 
-orbs: 
-  docker: circleci/docker@2.0.1
+orbs:
+  docker: circleci/docker@2.0.2
 
-executors:
-  ubuntu-2004:
-    machine:
-      image: ubuntu-2004:202111-02
-      docker_layer_caching: false    
+jobs:
+  build-publish-docker-hub:
+    executor: docker/machine
+    parameters:
+      image-name:
+        type: string
+        default: simplewhale
+      image-tag:
+        type: string
+        default: latest
+    steps:
+      - checkout
+      - docker/check:
+          docker-username: DOCKER_HUB_USERNAME
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+      - docker/build:
+          # lint Dockerfile via Dockerlint, before building
+          lint-dockerfile: true
+          image: $DOCKER_HUB_USERNAME/<< parameters.image-name >>
+      - docker/push:
+          image: $DOCKER_HUB_USERNAME/<< parameters.image-name >>
+          tag: $CIRCLE_SHA1,latest
 
 workflows:
-  ci:
+  publish-image:
     jobs:
-      - docker/publish:
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          image: $DOCKER_HUB_USERNAME/simplewhale
-          tag: $CIRCLE_SHA1,latest
-          executor: ubuntu-2004
-          update-description: true
+      - build-publish-docker-hub
