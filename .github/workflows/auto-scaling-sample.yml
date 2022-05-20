@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     name: Build Docker
-    runs-on: my-custom-runner
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
         docker build -t test .
   build-2:
     name: Build Docker
-    runs-on: my-custom-runner
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
         docker build -t test .
   build-3:
     name: Build Docker
-    runs-on: my-custom-runner
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -35,7 +35,7 @@ jobs:
         docker build -t test .
   build-4:
     name: Build Docker
-    runs-on: my-custom-runner
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -45,7 +45,7 @@ jobs:
         docker build -t test .
   build-5:
     name: Build Docker
-    runs-on: my-custom-runner
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
